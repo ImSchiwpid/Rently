@@ -1,0 +1,23 @@
+# Dependencies and build output
+node_modules/
+**/node_modules/
+dist/
+coverage/
+artifacts/
+cache/
+typechain-types/
+
+# Local secrets and runtime data
+.env
+.env.*
+!.env.example
+!**/.env.example
+*.local
+*.log
+mongodb-data/
+
+# Editors and OS files
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json

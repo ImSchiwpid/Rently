@@ -1,0 +1,30 @@
+This project runs locally on Windows with Node.js 22, MongoDB, and MetaMask. The frontend, API, and local blockchain each need a terminal window running.
+1. Get the project and install Node.js
+Copy the project folder to the school PC, or clone it if you keep it in a Git repository. Install Node.js 22 LTS; npm comes with it. Open PowerShell in the project folder and check:
+node -v
+npm.cmd -v
+If the school PC blocks software installs or browser extensions, ask the school’s IT staff whether Node.js and MetaMask are allowed.
+2. Install the project dependencies
+From the project root—the folder containing package.json—run:
+npm.cmd ci
+This installs the dependencies listed in the lockfile. You don’t need to copy node_modules from your own PC.
+3. Set up MongoDB and the API
+The API needs MongoDB. You can run MongoDB locally, or use a remote MongoDB instance if local installation is restricted.
+Create the API’s local configuration:
+if (-not (Test-Path apps/api/.env)) { Copy-Item apps/api/.env.example apps/api/.env }
+Open apps/api/.env. Set MONGODB_URI to the database you’ll use, and set JWT_SECRET to a random value of at least 32 characters. To generate one in PowerShell:
+node -e "console.log(require('node:crypto').randomBytes(32).toString('hex'))"
+Keep .env private; don’t commit or share it.
+4. Start the app
+Open three PowerShell windows in the project root.
+Window 1 — local blockchain:
+npm.cmd run chain:local
+Window 2 — build and deploy the contract, then start the API:
+npm.cmd run contracts:build
+npm.cmd run deploy:local
+npm.cmd run dev:api
+Window 3 — frontend:
+npm.cmd run dev:web
+Open the Vite address printed in Window 3, usually http://localhost:5173. Keep all three windows running while you use the app.
+For wallet features, install MetaMask if permitted and add the Hardhat Local network: RPC http://127.0.0.1:8545, chain ID 31337. Use only the local development accounts with this network.
+The project’s fuller setup notes are in [README.md](C:/Users/ayush/OneDrive/Documents/Rently/README.md).

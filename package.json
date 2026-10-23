@@ -1,0 +1,23 @@
+{
+  "name": "rental-deposit-vault",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/web",
+    "apps/api",
+    "packages/contracts"
+  ],
+  "scripts": {
+    "dev:web": "npm run dev --workspace=web",
+    "dev:api": "npm run dev --workspace=api",
+    "start:api": "npm run start --workspace=api",
+    "build:web": "npm run build --workspace=web",
+    "lint:web": "npm run lint --workspace=web",
+    "contracts:build": "npm run build --workspace=contracts",
+    "contracts:test": "npm run test --workspace=contracts",
+    "chain:local": "npm run node --workspace=contracts",
+    "deploy:local": "npm run deploy:local --workspace=contracts",
+    "api:test": "node --test apps/api/test/*.test.js",
+    "test": "npm run contracts:test && npm run api:test"
+  }
+}

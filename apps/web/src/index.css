@@ -1,0 +1,16 @@
+:root {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #eee9e2;
+  background: #11141c;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { min-width: 320px; min-height: 100vh; margin: 0; }
+button,input,select,textarea { font-family: inherit; }
+button:disabled { opacity: .48; cursor: not-allowed; }
